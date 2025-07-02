@@ -5,5 +5,13 @@ const members = [
 ];
 
 let add = (n1, n2) => n1 + n2;
+let getPerson = () => {
+  return {
+    firstName: "Joshep",
+    lastName: "Ben",
+    age: 20,
+    email: "sss@yedam.ac",
+  };
+};
 
-module.exports = { members, add };
+module.exports = { members, add, getPerson };
