@@ -1,5 +1,5 @@
-cloning GIT "node.js" repository
-OPEN CMD CONSOLE
-write "npm install"
-push enter
-installed module check
+cloning GIT "node.js" repository <br />
+OPEN CMD CONSOLE <br />
+write "npm install" <br />
+push enter <br />
+installed module check <br />
