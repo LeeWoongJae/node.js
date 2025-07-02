@@ -11,11 +11,6 @@
       "author": "json"
     },
     {
-      "id": "3",
-      "title": "json-server added",
-      "author": "json"
-    },
-    {
       "id": "4",
       "title": "json-server added",
       "author": "json"
@@ -26,9 +21,14 @@
       "author": "json"
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "fetch 연습",
       "author": "test02"
+    },
+    {
+      "id": "5",
+      "title": "json-server added",
+      "author": "json"
     }
   ]
 }
