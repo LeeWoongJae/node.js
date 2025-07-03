@@ -11,22 +11,35 @@
       "author": "json"
     },
     {
+<<<<<<< HEAD
       "id": "3",
       "title": "3 fetch 수정연습",
       "author": "test05"
     },
     {
+=======
+>>>>>>> d63db6fdb5c1db30a4fb752c504375848d34d469
       "id": "4",
       "title": "json-server added",
       "author": "json"
     },
     {
+<<<<<<< HEAD
       "id": 9,
+=======
+      "id": "5",
+      "title": "json-server added",
+      "author": "json"
+    },
+    {
+      "id": "9",
+>>>>>>> d63db6fdb5c1db30a4fb752c504375848d34d469
       "title": "fetch 연습",
       "author": "test02"
     },
     {
       "id": "5",
+<<<<<<< HEAD
       "title": "5 fetch 연습",
       "author": "test05"
     },
@@ -34,6 +47,10 @@
       "id": 5,
       "title": "5 fetch 연습",
       "author": "test05"
+=======
+      "title": "json-server added",
+      "author": "json"
+>>>>>>> d63db6fdb5c1db30a4fb752c504375848d34d469
     }
   ]
 }
