@@ -88,7 +88,7 @@ app.get("/download/customers", async (req, res) => {
   res.setHeader("Content-disposition", "attachment; filename=Customer.xlsx");
   res.setHeader(
     "Content-Type",
-    "application/vnd.openxmlformats-officedoument.spreadsheetml.sheet"
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
   );
   res.end(Buffer.from(xlsx.write(workExcel, { type: "base64" }), "base64"));
 });
