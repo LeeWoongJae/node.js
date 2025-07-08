@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Fileupload page</title>
+  </head>
+  <body>
+    <form action="" method="">
+      <input type="file" name="base64" id="" />
+      <button type="button">UPLOAD</button>
+    </form>
+    <script>
+      let data = "";
+      let fn;
+      let pid = 4;
+      // 파일 선택
+      document
+        .querySelector('input[name="base64"]')
+        .addEventListener("change", (e) => {
+          // console.dir(e.target.files[0]);
+          let file = e.target.files[0];
+          fn = file.name;
+          let fr = new FileReader();
+          fr.onload = (ev) => {
+            console.log(ev.target.result); // axios를 이용해서 넘겨줄 파일의 값
+            data = ev.target.result;
+          };
+          fr.readAsDataURL(file);
+        });
+      // 저장
+      document
+        .querySelector('button[type="button"]')
+        .addEventListener("click", async (e) => {
+          let result = await axios({
+            method: "post",
+            url: "/upload/" + fn + "/" + pid,
+            data: { data: data }, // 또는 {data} -- key와 value가 명칭이 같으면 한개만적어도 가능
+          });
+          console.log(result);
+        });
+    </script>
+  </body>
+</html>
