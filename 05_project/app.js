@@ -2,6 +2,7 @@ const express = require("express");
 const mysql = require("mysql2");
 const fs = require("fs");
 const path = require("path");
+const cors = require("cors");
 require("dotenv").config({ path: "./mysql/.env" });
 const bodyParser = require("body-parser");
 const { query } = require("./mysql/index.js");
@@ -15,7 +16,7 @@ if (!fs.existsSync(uploadDir)) {
 app.use(bodyParser.json({ limit: "10mb" }));
 // body-parser를 따로 import 안하고 express모듈에 내장된 기능으로 사용하려면
 // -- app.use(express.json());
-
+app.use(cors());
 app.listen(3000, () => {
   console.log("http://localhost:3000");
 });
@@ -73,4 +74,20 @@ app.post("/api/:alias", async (req, res) => {
   const result = await query(req.params.alias, req.body.param, req.body.where); // -- productInsert
   // const result = await query(req.params.alias, [], req.body.where); // -- productList용
   res.send(result);
+});
+
+app.get("/todoList", async (req, res) => {
+  const result = await query("todoList");
+  console.log(result);
+  res.json(result);
+});
+
+app.delete("/todo/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const result = await query("todoDelete", id);
+    res.json(result);
+  } catch (err) {
+    res.json(err);
+  }
 });

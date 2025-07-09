@@ -62,3 +62,23 @@ from t_product t1, t_image t2, t_category t3
 where t1.id = 4 and t1.id =t2.product_id and t2.type = 1 and t1.category_id = t3.id;
 
 select * from t_user;
+create table tbl_todoList(
+id int not null auto_increment,
+name varchar(100) not null,
+chk tinyint(1) not null , 
+primary key(id)
+);
+insert into tbl_todoList(name , chk)
+values('숨쉬기' , true);
+insert into tbl_todoList(name , chk)
+values('잠자기' , true);
+insert into tbl_todoList(name , chk)
+values('물마시기' , true);
+insert into tbl_todoList(name , chk)
+values('TV시청' , true);
+insert into tbl_todoList(name , chk)
+values('청소하기' , true);
+select * from tbl_todoList;
+update  tbl_todoList
+set chk = false
+where id >= 7;

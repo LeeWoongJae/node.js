@@ -42,4 +42,10 @@ module.exports = {
   signUp: {
     query: `insert into t_user set ? on duplicate key update ? `,
   },
+  todoList: {
+    query: `select * from tbl_todoList`,
+  },
+  todoDelete: {
+    query: `delete from tbl_todoList where id=? `,
+  },
 };
