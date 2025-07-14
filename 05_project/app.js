@@ -44,9 +44,9 @@ app.get("/download/:productId/:fileName", (req, res) => {
   }
 });
 // 업로드
-app.post("/upload/:filename/:pid", (req, res) => {
-  const { filename, pid } = req.params;
-  //const filePath = `${__dirname}/uploads/${filename}/`;
+app.post("/upload/:filename/:pid/:type", (req, res) => {
+  const { filename, pid, type } = req.params;
+  //const filePath = `${__dirname}/uploads/${pid}/${filename}`;
   let productDir = path.join(uploadDir, pid);
   if (!fs.existsSync(productDir)) {
     fs.mkdirSync(productDir);
@@ -55,8 +55,11 @@ app.post("/upload/:filename/:pid", (req, res) => {
   console.log(safeFilename);
   const filePath = path.join(productDir, safeFilename);
   let data = req.body.data.slice(req.body.data.indexOf(";base64,") + 8);
-  fs.writeFile(filePath, data, "base64", (err) => {
+  fs.writeFile(filePath, data, "base64", async (err) => {
     // 같은 이름의 파일이 존재하는 경우 덮어쓰기 자동 실행
+    await query("productImageInsert", [
+      { product_id: pid, type: type, path: filename },
+    ]);
     if (err) {
       res.send("Occurred Error");
     } else {
